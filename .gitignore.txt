@@ -1,0 +1,3 @@
+#ignore text file
+
+*/node_modules/*
