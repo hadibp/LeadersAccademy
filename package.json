@@ -1,0 +1,19 @@
+{
+  "name": "leadersaccademy",
+  "version": "1.0.0",
+  "description": "accademy project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadibp/LeadersAccademy.git"
+  },
+  "author": "techsias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hadibp/LeadersAccademy/issues"
+  },
+  "homepage": "https://github.com/hadibp/LeadersAccademy#readme"
+}
