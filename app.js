@@ -13,9 +13,11 @@ app.get('/',(req,res)=>{
     res.render('home');
 })
 app.get('/nav',(req,res)=>{
-    res.render('partials/logindashbord');
+    res.render('partials/navbar');
 })
-
+app.get('/footer',(req,res)=>{
+    res.render('partials/footer')
+})
 app.listen(4000,()=>{
     console.log("website is running");
 })
