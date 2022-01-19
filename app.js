@@ -18,6 +18,9 @@ app.get('/nav',(req,res)=>{
 app.get('/footer',(req,res)=>{
     res.render('partials/footer')
 })
+app.get('/modal',(req,res)=>{
+    res.render('partials/modal')
+})
 app.listen(4000,()=>{
     console.log("website is running");
 })
