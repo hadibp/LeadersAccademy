@@ -18,8 +18,11 @@ app.get('/nav',(req,res)=>{
 app.get('/footer',(req,res)=>{
     res.render('partials/footer')
 })
-app.get('/modal',(req,res)=>{
-    res.render('partials/modal')
+app.get('/login-modal',(req,res)=>{
+    res.render('partials/login-modal')
+})
+app.get('/library-modal',(req,res)=>{
+    res.render('partials/library-modal')
 })
 app.listen(4000,()=>{
     console.log("website is running");
