@@ -9,10 +9,48 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
- -   />
-    <link rel="stylesheet" href="../public/stylesheets/logindashbord.css" />
+      -
+    />
+    <!-- <link rel="stylesheet" href="../public/stylesheets/logindashbord.css" /> -->
     <title>logindash bord</title>
   </head>
+  <style>
+    .navbar {
+      background-color: #63808c;
+    }
+    .image-logo {
+      max-width: 3%;
+      height: 45px;
+    }
+    .nav-logo {
+      margin-left: 40px;
+    }
+    .nav-end {
+      margin-left: 680px;
+    }
+    @media screen and (max-width:1430px) {
+      .nav-end {
+      margin-left: 460px;
+    }
+    }
+    @media screen and (max-width:1210px) {
+      .nav-end {
+      margin-left: 280px;
+    }
+    }
+
+    @media screen and (max-width: 768px) {
+      .image-logo {
+        max-width: 9%;
+        height: 45px;
+      }
+      .heading {
+        font-size: 24px;
+        line-height: revert;
+        margin-right: 24px;
+      }
+    }
+  </style>
 
   <body>
     <header>
@@ -21,7 +59,7 @@
           <div class="row text-white">
             <img
               src="../public/images/logo.png"
-              class=" image-logo mr-3"
+              class="image-logo mr-3"
               alt=""
             />
             <h2 class="heading text-white">Leaders Accademy</h2>
