@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+
+    <title>form</title>
+  </head>
+  <style>
+    .top {
+      margin-top: 4rem;
+    }
+    .imgg {
+      background-color: #63808c;
+    }
+    .sbtbtn {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <%- include('navbar'); %>
+
+    <!--admission form body-->
+    <form action="/admin" method="post">
+      <div class="container-fluid">
+        <div class="row top">
+          <div class="col-sm-2">
+            <h3><i>Admission</i></h3>
+          </div>
+          <div class="row"></div>
+          <div class="col-sm-10">
+            <!--ROW1-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    name="studname"
+                    class="form-control"
+                    placeholder="Name"
+                    value="name"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Roll No:</label>
+                  <input
+                    type="text"
+                    name="rollno"
+                    class="form-control"
+                    class="roll"
+                    placeholder="Roll No"
+                    value="r02"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Batch:</label>
+                  <input
+                    type="text"
+                    name="batch"
+                    class="form-control"
+                    placeholder="Batch"
+                    value="2019"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW2-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Programme:</label>
+                  <input
+                    type="text"
+                    name="program"
+                    class="form-control"
+                    class="prgrm"
+                    placeholder="programme"
+                    value="cs"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Date of Birth:</label>
+                  <input type="date" name="dob" class="form-control" />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Blood Group:</label>
+                  <input
+                    type="text"
+                    name="bloodgroup"
+                    class="form-control"
+                    placeholder="O+ve"
+                    value="O+"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW3-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Health problems , if any:</label>
+                  <input
+                    type="text"
+                    name="health"
+                    class="form-control"
+                    placeholder="Health prblm"
+                    value="omitinng"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Mobile No:</label>
+                  <input
+                    type="tel"
+                    name="mob"
+                    class="form-control"
+                    placeholder="Mobile Number"
+                    value="7894532123"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Email address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="abcdef@gmail.com"
+                    value="abcdef@gmail.com"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW4-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Permanent Address:</label>
+                  <textarea
+                    type="text"
+                    name="permaddress"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Address.."
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Contact:</label>
+                  <input
+                    type="tel"
+                    name="permcontact"
+                    class="form-control"
+                    placeholder="Mobile Number"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Local Guardian's Address:</label>
+                  <textarea
+                    type="text"
+                    name="localaddress"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Address.."
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Contact:</label>
+                  <input
+                    type="tel"
+                    name="localcontact"
+                    class="form-control"
+                    placeholder="Mobile Number"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Addmission No:</label>
+                  <input
+                    type="text"
+                    name="admissionno"
+                    class="form-control"
+                    placeholder=""
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Admission status:</label>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      name="gm"
+                      type="checkbox"
+                      id="inlineCheckbox1"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox1"
+                      >GM</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      name="sc"
+                      type="checkbox"
+                      id="inlineCheckbox2"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox2"
+                      >SC</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      name="st"
+                      type="checkbox"
+                      id="inlineCheckbox3"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox3"
+                      >ST</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      name="mq"
+                      type="checkbox"
+                      id="inlineCheckbox3"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="inlineCheckbox3"
+                      >Management Quota</label
+                    >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Name of the proposer:</label>
+                  <input
+                    type="text"
+                    name="proposer"
+                    class="form-control"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW5-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Previous course of study:</label>
+                  <input
+                    type="text"
+                    name="prevcourse"
+                    class="form-control"
+                    placeholder="plus two"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Institution:</label>
+                  <input
+                    type="text"
+                    name="institute"
+                    class="form-control"
+                    placeholder="rahmania"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Mark(%):</label>
+                  <input
+                    type="text"
+                    name="mark"
+                    class="form-control"
+                    placeholder="99%"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW6-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Father's Name:</label>
+                  <input
+                    type="text"
+                    name="fathername"
+                    class="form-control"
+                    placeholder="ABCD"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Occupation:</label>
+                  <input
+                    type="text"
+                    name="fatheroccupation"
+                    class="form-control"
+                    placeholder="Police"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Contact:</label>
+                  <input
+                    type="tel"
+                    name="fathercontact"
+                    class="form-control"
+                    placeholder="12356895"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW7-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Mother's Name:</label>
+                  <input
+                    type="text"
+                    name="mothername"
+                    class="form-control"
+                    placeholder="mother's name"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Occupation:</label>
+                  <input
+                    type="text"
+                    name="mothersoccupation"
+                    class="form-control"
+                    placeholder="Occupation"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Contact:</label>
+                  <input
+                    type="tel"
+                    name="motherscontact"
+                    class="form-control"
+                    placeholder="+91 78954321"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW8-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Guardian's Name and relation:</label>
+                  <input
+                    type="text"
+                    name="gurdiansname"
+                    class="form-control"
+                    placeholder="gurdian's"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Occupation:</label>
+                  <input
+                    type="text"
+                    name="gurdiansoccupation"
+                    class="form-control"
+                    placeholder="Occupatopn"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Contact:</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Contact"
+                  />
+                </div>
+              </div>
+            </div>
+            <!--ROW9-->
+            <div class="row">
+              <div class="col-sm-12">
+                <label>Details of any relatives studying in SIAS</label>
+              </div>
+            </div>
+            <!--ROW10-->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    name="relativename"
+                    class="form-control"
+                    placeholder="Name"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Programme:</label>
+                  <input
+                    type="text"
+                    name="relativeprogram"
+                    class="form-control"
+                    placeholder="BSc CS"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label>Year:</label>
+                  <input
+                    type="tel"
+                    name="relativeyear"
+                    class="form-control"
+                    placeholder="2022"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row sbtbtn">
+          <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+      </div>
+    </form>
+  </body>
+  <%- include('footer'); %>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"
+  ></script>
+</html>
