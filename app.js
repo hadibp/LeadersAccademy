@@ -4,26 +4,24 @@ var path = require("path");
 
 // database connection
 require("./config/connection");
-const Register = require("./public/javascript/registers");
 
 // routes
 
-var adminRouter = require("./routes/admin");
+var adminRouter = require("./routes/Admin");
 var studentRouter = require("./routes/student");
 var publicRouter = require("./routes/public");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/public", express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
+//
 
 app.get("/nav", (req, res) => {
+  console.log("welocome");
   res.render("partials/navbar");
 });
 
@@ -39,22 +37,11 @@ app.get("/library-modal", (req, res) => {
   res.render("partials/library-modal");
 });
 
-app.get("/admin", (req, res) => {
-  res.render("partials/admission");
-});
+// router
+app.use("/", adminRouter);
+app.use("/admin", adminRouter);
 
 // create a new user in database
-app.post("/admin", async (req, res) => {
-  try {
-
-
-  } catch (e) {
-    res.status(404).send(e);
-  }
-
-  res.render("home");
-  console.log(req.body);
-});
 
 app.listen(4000, () => {
   console.log("website is running");
