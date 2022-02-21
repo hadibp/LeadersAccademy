@@ -1,19 +1,36 @@
 var express = require("express");
 var router = express.Router();
 const Register = require("../public/javascript/registers");
+const Auth = require("../public/javascript/registers");
+
 
 // Home page
 router.get("/", (req, res) => {
-  console.log("welocome");
+  res.render("home");
+});
+router.post("/", async(req, res) => {
+  console.log(req.body);
+    var auth = await new Auth({
+    username:req.body.username,
+    password:req.body.password
+  });
+  auth.save();
   res.render("home");
 });
 
+
 // Admission page
 router.get("/admin", (req, res) => {
-  res.render("partials/admission");
+  res.render("admin/admission");
+});
+router.get("/bform", (req, res) => {
+  res.render("admin/bookform");
+});
+router.get("/eform", (req, res) => {
+  res.render("admin/eventform");
 });
 
-router.post("/admin", (req, res) => {
+router.post("/admin", async (req, res) => {
   console.log(req.body);
   var register = new Register({
     studname: req.body.studname,
@@ -52,7 +69,7 @@ router.post("/admin", (req, res) => {
     relativeyear: req.body.relativeyear,
   });
   register.save();
-  res.render("partials/admission");
+  res.render("admin/admission");
 });
 
 module.exports = router;

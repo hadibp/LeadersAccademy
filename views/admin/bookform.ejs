@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+      -
+    />
+    <title>Bookform</title>
+</head>
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right"></div>
+
+            <div class="col-md-5 border-right bg-secondary">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right text-white">Book Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+
+                        <div class="col-md-6"><label class="labels text-white">Title</label><input type="text" class="form-control" placeholder="Title Name" value=""></div>
+                        <div class="col-md-6"><label class="labels text-white">Author</label><input type="text" class="form-control" value="" placeholder="Name of Author"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label for="formFile" class="form-label text-white">Choose Book</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col-md-12"><label class="labels text-white">Publication</label><input type="text" class="form-control" placeholder="Name of Publication Agent" value=""></div>
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                <label for="date-picker-example" class="text-white">Date Of Publish</label>
+                                <input placeholder="Select a date" type="date" id="date-picker-example" class="form-control datepicker">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="md-form">
+                                <label for="date-picker-example" class="text-white">Date Added</label>
+                                <input placeholder="Select a date" type="date" id="date-picker-example" class="form-control datepicker">
+                            </div>
+                        </div>
+                        <div class="col-md-12"><label class="labels text-white">Number Of Copies</label><input type="text" class="form-control" placeholder="Enter the number" value=""></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="text-white" for="exampleFormControlSelect1">Availability</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option>Yes</option>
+                              <option>No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6"><label class="text-white" for="exampleFormControlSelect1">Status</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option>Read</option>
+                              <option>Unread</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Book</button></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/radialIndicator/1.4.0/radialIndicator.js"></script>
+</html>

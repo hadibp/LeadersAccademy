@@ -1,4 +1,19 @@
 const mongoose = require("mongoose");
+
+
+const adminschema = new mongoose.Schema({
+  username: {
+    type: String,
+    required:true,
+  },
+  password: {
+    type:String,
+    required:true,
+  },
+  })
+
+
+
 const studentSchema = new mongoose.Schema({
   studname: {
     type: String,
@@ -137,5 +152,6 @@ const studentSchema = new mongoose.Schema({
 // create collection
 
 const Register = new mongoose.model("Register", studentSchema);
+const Auth = new mongoose.model("Auth", adminschema )
 
-module.exports = Register;
+module.exports = Auth,Register;

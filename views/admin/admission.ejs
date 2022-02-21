@@ -15,6 +15,7 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
 
     <title>form</title>
   </head>
@@ -34,7 +35,7 @@
   <body>
 
     <!-- navbar -->
-    <%- include('navbar'); %>
+    <%- include('../partials/navbar'); %>
 
     <!--admission form body-->
     <form  method="post" action="/admin">
@@ -484,14 +485,14 @@
             </div>
           </div>
         </div>
-
         <div class="row sbtbtn">
           <button type="submit" class="btn btn-info">Submit</button>
         </div>
       </div>
     </form>
   </body>
-  <%- include('footer'); %>
+  <!-- footer -->
+  <%- include('../partials/footer'); %>
 
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
