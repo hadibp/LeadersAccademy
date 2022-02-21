@@ -150,6 +150,10 @@ const studentSchema = new mongoose.Schema({
 
 
 const bookschema = new mongoose.Schema({
+  bookname:{
+    type:String,
+    required:true,
+  },
   
 })
 // create collection

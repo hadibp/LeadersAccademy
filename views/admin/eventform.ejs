@@ -1,81 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous"
-    -
-  />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
-  
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+      -
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css"
+    />
 
     <title>Eventform</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right"></div>
+      <div class="row">
+          <form action="/" method="post"></form>
+        <div class="col-md-3 border-right"></div>
 
-            <div class="col-md-5 border-right bg-secondary">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right text-white">Event Settings</h4>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        
-                        <div class="col-md-12">
-                            <div class="md-form">
-                                <label for="date-picker-example" class="text-white">Date</label>
-                                <input placeholder="Selected date" type="date" id="date-picker-example" class="form-control datepicker">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="md-form md-outline input-with-post-icon timepicker" twelvehour="true">
-                                <label for="twelve-hour-clock" class="labels text-white">Time</label>
-                                <input type="time" id="twelve-hour-clock" class="form-control" placeholder="Select time">
-                                <i class="fas fa-envelope input-prefix"></i>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                    <label class="text-white ml-4" for="exampleFormControlSelect1">Platform</label>
-                                    <select class="form-control ml-4" id="exampleFormControlSelect1">
-                                      <option>Google Meet</option>
-                                      <option>Zoom Meeting</option>
-                                      <option>Botim</option>
-                                      <option>None</option>
-                                    </select>
-                            </div>
-                            <div class="col-md-6">
-                                    <label class="text-white ml-4" for="exampleFormControlSelect1">Event Category</label>
-                                    <select class="form-control ml-4" id="exampleFormControlSelect1">
-                                      <option value="virtual">Virtual</option>
-                                      <option value="non-virtual">Non-Virtual</option>
-                                    </select>
-                            </div>
-                            
-                        </div>
-                        <div class="image">
-                            <input type="file" class="ml-4 mt-4" name="event" >
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-success profile-button" type="button">Save Event</button></div>
-                </div>
+        <div class="col-md-5 border-right bg-secondary">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right text-white">Event Settings</h4>
             </div>
-            
+            <div class="row mt-4">
+              <div class="col-md-12">
+                <div class="md-form">
+                  <label for="date-picker-example" class="text-white"
+                    >Date</label
+                  >
+                  <input
+                    placeholder="Selected date"
+                    type="date"
+                    id="date-picker-example"
+                    class="form-control datepicker"
+                    value="15-06-2000"
+                    name="edate"
+                  />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div
+                  class="md-form md-outline input-with-post-icon timepicker"
+                  twelvehour="true"
+                >
+                  <label for="twelve-hour-clock" class="labels text-white"
+                    >Time</label
+                  >
+                  <input
+                    type="time"
+                    id="twelve-hour-clock"
+                    class="form-control"
+                    placeholder="Select time"
+                    value="12:00"
+                    name="etime"
+                  />
+                  <i class="fas fa-envelope input-prefix"></i>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <label class="text-white ml-4" for="exampleFormControlSelect1"
+                    >Platform</label
+                  >
+                  <select
+                    class="form-control ml-4"
+                    id="exampleFormControlSelect1"
+                    name="eplatform"
+                  >
+                    <option value="gmeet">Google Meet</option>
+                    <option value="zmeet">Zoom Meeting</option>
+                    <option value="botim">Botim</option>
+                    <option value="none">None</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="text-white ml-4" for="exampleFormControlSelect1"
+                    >Event Category</label
+                  >
+                  <select
+                    class="form-control ml-4"
+                    id="exampleFormControlSelect1"
+                    name="ecategory"
+                  >
+                    <option value="virtual">Virtual</option>
+                    <option value="non-virtual">Non-Virtual</option>
+                  </select>
+                </div>
+              </div>
+              <div class="image">
+                <input type="file" class="ml-4 mt-4" name="event" />
+              </div>
+            </div>
+            <div class="mt-5 text-center">
+              <button class="btn btn-success profile-button" type="submit">
+                Save Event
+              </button>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
-<script src="eventform.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-
-
+  </body>
+  <script src="eventform.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script
+    type="text/javascript"
+    src="//code.jquery.com/jquery-1.8.3.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"
+  ></script>
 </html>
