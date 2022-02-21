@@ -155,10 +155,22 @@ const bookschema = new mongoose.Schema({
     required:true,
   },
   
+});
+const eventschema = new mongoose.Schema({
+
 })
+
 // create collection
 
 const Register = new mongoose.model("Register", studentSchema);
-const Auth = new mongoose.model("Auth", adminschema )
+const Auth = new mongoose.model("Auth", adminschema );
+const Book = new mongoose.model("Book" , bookschema );
+const Event = new mongoose.model("Event",eventschema)
 
-module.exports = Auth,Register;
+module.exports = {
+  Register,
+  Auth,
+  Book,
+  Event
+
+}

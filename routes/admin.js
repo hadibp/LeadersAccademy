@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const Register = require("../public/javascript/registers");
-const Auth = require("../public/javascript/registers");
+const { Register, Auth, Book, Event}= require("../public/javascript/registers");
 
 
 // Home page
@@ -76,4 +75,11 @@ router.post("/admin", async (req, res) => {
   res.render("admin/admission");
 });
 
+router.get("/all",(req,res)=>{
+  Register.find().then((result)=>{
+    res.send(result)
+  }).catch((err)=>{
+    console.log(err);
+  });
+})
 module.exports = router;

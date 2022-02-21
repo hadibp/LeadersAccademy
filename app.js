@@ -36,10 +36,12 @@ app.get("/login-modal", (req, res) => {
 app.get("/library-modal", (req, res) => {
   res.render("partials/library-modal");
 });
+
 // app.post("/", (req, res) => {
 //   console.log(req.body);
 //   res.render("home");
 // });
+
 // router
 app.use("/", adminRouter);
 app.use("/admin", adminRouter);
