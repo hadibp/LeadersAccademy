@@ -13,7 +13,6 @@ const adminschema = new mongoose.Schema({
   })
 
 
-
 const studentSchema = new mongoose.Schema({
   studname: {
     type: String,
@@ -149,6 +148,10 @@ const studentSchema = new mongoose.Schema({
   },
 });
 
+
+const bookschema = new mongoose.Schema({
+  
+})
 // create collection
 
 const Register = new mongoose.model("Register", studentSchema);

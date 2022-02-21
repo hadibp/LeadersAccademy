@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 router.post("/", async(req, res) => {
   console.log(req.body);
-    var auth = await new Auth({
+    var auth = new Auth({
     username:req.body.username,
     password:req.body.password
   });
@@ -24,6 +24,10 @@ router.get("/admin", (req, res) => {
   res.render("admin/admission");
 });
 router.get("/bform", (req, res) => {
+  res.render("admin/bookform");
+});
+router.post("/bform", (req, res) => {
+  console.log(req.body);
   res.render("admin/bookform");
 });
 router.get("/eform", (req, res) => {
