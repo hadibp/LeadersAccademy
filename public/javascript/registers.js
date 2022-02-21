@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
 
-
 const adminschema = new mongoose.Schema({
   username: {
     type: String,
-    required:true,
+    required: true,
   },
   password: {
-    type:String,
-    required:true,
+    type: String,
+    required: true,
   },
-  })
-
+});
 
 const studentSchema = new mongoose.Schema({
   studname: {
@@ -148,29 +146,73 @@ const studentSchema = new mongoose.Schema({
   },
 });
 
-
 const bookschema = new mongoose.Schema({
-  bookname:{
-    type:String,
-    required:true,
+  bookname: {
+    type: String,
+    required: true,
   },
-  
+  nauthor: {
+    type: String,
+    required: true,
+  },
+  publication: {
+    type: String,
+    required: true,
+  },
+  dpublish: {
+    type: String,
+    required: true,
+  },
+  dadded: {
+    type: String,
+    required: true,
+  },
+  copies: {
+    type: String,
+    required: true,
+  },
+  bavailability: {
+    type: String,
+    required: true,
+  },
+  Status: {
+    type: String,
+    required: true,
+  },
 });
+
 const eventschema = new mongoose.Schema({
-
-})
-
+  edate: {
+    type: String,
+    required: true,
+  },
+  etime: {
+    type: String,
+    required: true,
+  },
+  eplatform: {
+    type: String,
+    required: true,
+  },
+  ecategory: {
+    type: String,
+    required: true,
+  },
+  event: {
+    type: String,
+    required: true,
+  },
+});
 // create collection
 
 const Register = new mongoose.model("Register", studentSchema);
-const Auth = new mongoose.model("Auth", adminschema );
-const Book = new mongoose.model("Book" , bookschema );
-const Event = new mongoose.model("Event",eventschema)
+const Auth = new mongoose.model("Auth", adminschema);
+const Book = new mongoose.model("Book", bookschema);
+const Event = new mongoose.model("Event", eventschema);
 
 module.exports = {
   Register,
   Auth,
   Book,
-  Event
-
-}
+  Event,
+};
