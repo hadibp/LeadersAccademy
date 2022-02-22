@@ -24,6 +24,9 @@ app.get("/nav", (req, res) => {
   console.log("welocome");
   res.render("partials/navbar");
 });
+app.get("/profile", (req, res) => {
+  res.render("admin/stdprofile");
+});
 
 app.get("/footer", (req, res) => {
   res.render("partials/footer");
@@ -42,12 +45,12 @@ app.get("/library-modal", (req, res) => {
 //   res.render("home");
 // });
 
+
 // router
 app.use("/", adminRouter);
 app.use("/admin", adminRouter);
 
 // create a new user in database
-
 app.listen(4000, () => {
   console.log("website is running");
 });

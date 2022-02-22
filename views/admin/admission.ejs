@@ -15,7 +15,7 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
 
     <title>form</title>
   </head>
@@ -31,18 +31,33 @@
       text-align: center;
       justify-content: center;
     }
+    .imageinsert {
+      margin: 2px;
+      margin-top: 45px;
+    }
   </style>
   <body>
-
     <!-- navbar -->
     <%- include('../partials/navbar'); %>
 
     <!--admission form body-->
-    <form  method="post" action="/admin">
+    <form method="post" action="/admin" enctype="multipart/form-data">
       <div class="container-fluid">
         <div class="row top">
           <div class="col-sm-2">
             <h3><i>Admission</i></h3>
+            <div class="imageinsert">
+              <!-- <img
+                src="../public/images/colorcode.png"
+                class="rounded float-left img-fluid"
+                alt="..."
+              /> -->
+              <label for=""
+                >choose your <br />
+                profile photo</label
+              >
+              <input type="file" name="Image" class="form-control" />
+            </div>
           </div>
           <div class="row"></div>
           <div class="col-sm-10">
@@ -204,7 +219,6 @@
                     class="form-control"
                     placeholder="Mobile Number"
                     value="123567899"
-
                   />
                 </div>
               </div>

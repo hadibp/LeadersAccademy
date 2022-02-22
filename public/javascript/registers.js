@@ -1,13 +1,19 @@
 const mongoose = require("mongoose");
+const {isEmail } =require('validator')
+
 
 const adminschema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    required: [true,'please enter email'],
+    unique:true,
+    lowercase:true,
+    validate:[isEmail,'please enter a valid email']
   },
   password: {
     type: String,
-    required: true,
+    required: [true,'please enter password'],
+    minlength:[6,'minmum password length required is 6 charachters']
   },
 });
 
@@ -143,6 +149,10 @@ const studentSchema = new mongoose.Schema({
   relativeyear: {
     type: String,
     required: true,
+  },
+  img:{
+    type: String,
+    required:true,
   },
 });
 
