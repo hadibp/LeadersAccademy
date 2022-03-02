@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
-const {isEmail } =require('validator')
-
+const { isEmail } = require("validator");
+const bcrypt  = require('bcrypt')
 
 const adminschema = new mongoose.Schema({
-  username: {
+  email: {
     type: String,
-    required: [true,'please enter email'],
-    unique:true,
-    lowercase:true,
-    validate:[isEmail,'please enter a valid email']
+    required: [true, "please enter email"],
+    unique: true,
+    lowercase: true,
+    validate: [isEmail, "please enter a valid email"],
   },
   password: {
     type: String,
-    required: [true,'please enter password'],
-    minlength:[6,'minmum password length required is 6 charachters']
+    required: [true, "please enter password"],
+    minlength: [6, "minmum password length required is 6 charachters"],
   },
 });
 
@@ -36,7 +36,7 @@ const studentSchema = new mongoose.Schema({
   },
   dob: {
     type: Date,
-    required: true,
+    // required: true,
   },
   bloodgroup: {
     type: String,
@@ -56,15 +56,15 @@ const studentSchema = new mongoose.Schema({
   },
   permaddress: {
     type: String,
-    required: true,
+    // required: true,
   },
   permcontact: {
     type: String,
-    required: true,
+    // required: true,
   },
   localaddress: {
     type: String,
-    required: true,
+    // required: true,
   },
   localcontact: {
     type: String,
@@ -74,17 +74,9 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  gm: {
+  admissionstatus: {
     type: String,
-  },
-  sc: {
-    type: String,
-  },
-  st: {
-    type: String,
-  },
-  mq: {
-    type: String,
+    enum: ["GM", "SC", "ST", "MQ"],
   },
   proposer: {
     type: String,
@@ -150,9 +142,9 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  img:{
+  img: {
     type: String,
-    required:true,
+    // required:true,
   },
 });
 
@@ -213,16 +205,34 @@ const eventschema = new mongoose.Schema({
     required: true,
   },
 });
+
+
+// functions to doc saved to db
+// adminschema.post('save',(doc , next)=>{
+//   console.log('new user was created & saved ',doc);
+//   next();
+// })
+
+adminschema.pre('save', async function (next  ){
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password , salt)
+  console.log(('user about'));
+})
+
+
+
 // create collection
 
 const Register = new mongoose.model("Register", studentSchema);
-const Auth = new mongoose.model("Auth", adminschema);
+const User = new mongoose.model("User", adminschema);
 const Book = new mongoose.model("Book", bookschema);
 const Event = new mongoose.model("Event", eventschema);
 
+
+
 module.exports = {
   Register,
-  Auth,
+  User,
   Book,
   Event,
 };

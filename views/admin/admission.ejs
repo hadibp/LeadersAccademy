@@ -40,10 +40,16 @@
     <!-- navbar -->
     <%- include('../partials/navbar'); %>
 
+
+
     <!--admission form body-->
     <form method="post" action="/admin" enctype="multipart/form-data">
       <div class="container-fluid">
         <div class="row top">
+          <div class="col-sm-2">
+            <%- include('../partials/sidebar'); %>
+
+          </div>
           <div class="col-sm-2">
             <h3><i>Admission</i></h3>
             <div class="imageinsert">
@@ -52,15 +58,14 @@
                 class="rounded float-left img-fluid"
                 alt="..."
               /> -->
-              <label for=""
+              <label 
                 >choose your <br />
                 profile photo</label
               >
               <input type="file" name="Image" class="form-control" />
             </div>
           </div>
-          <div class="row"></div>
-          <div class="col-sm-10">
+          <div class="col-sm-8">
             <!--ROW1-->
             <div class="row">
               <div class="col-sm-4">
@@ -238,10 +243,10 @@
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
-                      name="gm"
-                      type="checkbox"
+                      name="status"
+                      type="radio"
                       id="inlineCheckbox1"
-                      value="option1"
+                      value="GM"
                     />
                     <label class="form-check-label" for="inlineCheckbox1"
                       >GM</label
@@ -250,10 +255,10 @@
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
-                      name="sc"
-                      type="checkbox"
+                      name="status"
+                      type="radio"
                       id="inlineCheckbox2"
-                      value="option2"
+                      value="SC"
                     />
                     <label class="form-check-label" for="inlineCheckbox2"
                       >SC</label
@@ -262,10 +267,10 @@
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
-                      name="st"
-                      type="checkbox"
+                      name="status"
+                      type="radio"
                       id="inlineCheckbox3"
-                      value="option3"
+                      value="ST"
                     />
                     <label class="form-check-label" for="inlineCheckbox3"
                       >ST</label
@@ -274,10 +279,10 @@
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
-                      name="mq"
-                      type="checkbox"
+                      name="status"
+                      type="radio"
                       id="inlineCheckbox3"
-                      value="option3"
+                      value="MQ"
                     />
                     <label class="form-check-label" for="inlineCheckbox3"
                       >Management Quota</label
@@ -497,17 +502,19 @@
                 </div>
               </div>
             </div>
+            <div class="row sbtbtn">
+              <button type="submit" class="btn btn-info">Submit</button>
+            </div>
           </div>
         </div>
-        <div class="row sbtbtn">
-          <button type="submit" class="btn btn-info">Submit</button>
-        </div>
+        
       </div>
     </form>
   </body>
   <!-- footer -->
   <%- include('../partials/footer'); %>
 
+  
   <script
     src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

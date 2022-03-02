@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Responsive Sidebar Menu  | CodingLab </title>
+    <title>SIDEBAR</title>
+    <link rel="stylesheet" href="">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
      /* Google Font Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
-  /* margin: 0; */
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
@@ -21,8 +21,10 @@
   position: relative;
   left: 0;
   top: 0;
+  height: 100%;
   width: 78px;
-  background:#63808C;
+  background: #151B27;
+;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -108,40 +110,6 @@
 }
 .sidebar.open li .tooltip{
   display: none;
-}
-.sidebar input{
-  font-size: 15px;
-  color: #FFF;
-  font-weight: 400;
-  outline: none;
-  height: 50px;
-  width: 100%;
-  width: 50px;
-  border: none;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-  background: #1d1b31;
-}
-.sidebar.open input{
-  padding: 0 20px 0 50px;
-  width: 100%;
-}
-.sidebar .bx-search{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  font-size: 22px;
-  background: #1d1b31;
-  color: #FFF;
-}
-.sidebar.open .bx-search:hover{
-  background: #1d1b31;
-  color: #FFF;
-}
-.sidebar .bx-search:hover{
-  background: #FFF;
-  color: #11101d;
 }
 .sidebar li a{
   display: flex;
@@ -267,48 +235,50 @@
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="">
+        <a href="#">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Admin</span>
+        </a>
          <span class="tooltip">Admin</span>
       </li>
       <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Profile</span>
-        </a>
-         <span class="tooltip">Profile</span>
-      </li>
-      <li>
-        <a href="Admission.html">
+       <a href="#">
          <i class='bx bx-user' ></i>
-         <span class="links_name">Admission</span>
-         </a>
-       <span class="tooltip">Admission</span>
+         <span class="links_name">Profile</span>
+       </a>
+       <span class="tooltip">Profile</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-chat' ></i>
+         <span class="links_name">Admission</span>
+       </a>
+       <span class="tooltip">Admission</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-pie-chart-alt-2' ></i>
          <span class="links_name">LDP</span>
        </a>
        <span class="tooltip">LDP</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
+         <i class='bx bx-folder' ></i>
          <span class="links_name">Student</span>
        </a>
        <span class="tooltip">Student</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-folder' ></i>
+         <i class='bx bx-cart-alt' ></i>
          <span class="links_name">Library</span>
        </a>
        <span class="tooltip">Library</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-cart-alt' ></i>
+         <i class='bx bx-heart' ></i>
          <span class="links_name">Activities</span>
        </a>
        <span class="tooltip">Activities</span>
@@ -321,37 +291,30 @@
        <span class="tooltip">Setting</span>
      </li>
     </ul>
-  
-</div>
-  <!-- <section class="home-section">
-      <div class="text"></div>
-  </section> -->
+  </div>
 
-  <script >
-    let sidebar = document.querySelector(".sidebar");
-let closeBtn = document.querySelector("#btn");
-let searchBtn = document.querySelector(".bx-search");
-
-closeBtn.addEventListener("click", ()=>{
-  sidebar.classList.toggle("open");
-  menuBtnChange();//calling the function(optional)
-});
-
-searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
-  sidebar.classList.toggle("open");
-  menuBtnChange(); //calling the function(optional)
-});
-
-// following are the code to change sidebar button(optional)
-function menuBtnChange() {
- if(sidebar.classList.contains("open")){
-   closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
- }else {
-   closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
- }
-}
-
-  </script>
+  <script>let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+    
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+    
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+    
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }</script>
 
 </body>
 </html>

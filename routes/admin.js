@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
-const { Register, Auth, Book, Event}= require("../public/javascript/registers");
+const { Register, User, Book, Event}= require("../public/javascript/registers");
 const multer = require("multer");
-
+const authRoute = require('./authRoutes')
 
 
 // define storage for the images
@@ -28,56 +28,43 @@ const upload = multer({
   },
 })
 
+// ....................routes................. //
+
 // Home page
 router.get("/", (req, res) => {
   res.render("home");
 });
 router.post("/", async(req, res) => {
   console.log(req.params);
-    var auth = new Auth({
-    username:req.body.username,
+    var user = new User({
+    email:req.body.email,
     password:req.body.password
   });
-  auth.save();
+  user.save();
+  // const {email, password } = req.body;
+  // try {
+    
+  // } catch (err) {
+  //   console.log("thiss is an error");
+  // }
+
   res.render("home");
+  
 });
 
-router.get("/card", (req, res) => {
-  Register.find(function(err,register){
-      if(err){
-        console.log(err);
-      }else{
-        res.render("admin/card",{register:register});
-        console.log(register);
-      }
-  })
-});
 
+// auth page
+router.use(authRoute)
 
 // Admission page
+// students details pages
 router.get("/admin", (req, res) => {
   res.render("admin/admission");
 });
-router.get("/profile/:id", (req, res) => {
-  console.log(req.params.id);
-  res.send("the parameter is " + req.params.id)
-  // res.render("admin/admission");
-});
-
-router.get("/bform", (req, res) => {
-  res.render("admin/bookform");
-});
-router.post("/bform", (req, res) => {
-  console.log(req.body);
-  res.render("admin/bookform");
-});
-router.get("/eform", (req, res) => {
-  res.render("admin/eventform");
-});
 
 router.post("/admin",upload.single('Image'), async (req, res) => {
-  console.log(req.body);
-  console.log(req.file);
+  // console.log(req.body);
+  // console.log(req.file);
   var register = new Register({
     studname: req.body.studname,
     rollno: req.body.rollno,
@@ -93,10 +80,7 @@ router.post("/admin",upload.single('Image'), async (req, res) => {
     localaddress: req.body.localaddress,
     localcontact: req.body.localcontact,
     admissionno: req.body.admissionno,
-    gm: req.body.gm,
-    sc: req.body.sc,
-    st: req.body.st,
-    mq: req.body.mq,
+    admissionstatus:req.body.status,
     proposer: req.body.proposer,
     prevcourse: req.body.prevcourse,
     institute: req.body.institute,
@@ -115,7 +99,6 @@ router.post("/admin",upload.single('Image'), async (req, res) => {
     relativeyear: req.body.relativeyear,
     img:req.file.filename,
   });
-
   try{
     register.save();
     res.render("admin/admission");
@@ -124,12 +107,51 @@ router.post("/admin",upload.single('Image'), async (req, res) => {
   }
 });
 
-router.get("/events",(req,res)=>{
-  res.render("admin/ldgevents");
-})
+
+// dispaly student page
+router.get("/card", (req, res) => {
+  Register.find(function(err,register){
+      if(err){
+        console.log(err);
+      }else{
+        res.render("admin/card",{register:register});
+        console.log(register);
+      }
+  })
+});
+
+
+
+
+// library page
 router.get("/library",(req,res)=>{
   res.render("admin/library");
 })
+
+// library adding pages
+router.get("/lform", (req, res) => {
+  res.render("admin/bookform");
+});
+router.post("/lform", (req, res) => {
+  console.log(req.body);
+  res.render("admin/library");
+});
+
+
+// LDGevnt pages
+router.get("/events",(req,res)=>{
+  res.render("admin/ldgevents");
+})
+
+router.get("/eform", (req, res) => {
+  res.render("admin/eventform");
+});
+
+
+// profile card
+router.get("/profile", (req, res) => {
+  res.render("admin/stdprofile");
+});
 
 router.get("/all",(req,res)=>{
   Register.find().then((result)=>{
