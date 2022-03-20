@@ -13,10 +13,10 @@ const handleErrors = (err) => {
     return errors;
   }
   //validation error
-  if (err.message.includes("*User validation failed")) {
-    // console.log(Object.values(err.errors));
+  if (err.message.includes("*Useer validation failed")) {
+    console.log(Object.values(err.errors));
     Object.values(err.errors).forEach(({ errors }) => {
-      console.log(errors.password);
+      console.log(errors.message);
       errors.path = properties.message;
     });
   }
@@ -52,11 +52,11 @@ module.exports.signup_post = async (req, res) => {
 };
 
 module.exports.login_post = async (req, res) => {
-  // const {email , password} = req.body;
-  // try {
-  //   const user = await User.login(email , password);
-  //   res.status(200).json({user})
-  // } catch (err) {
-  //   res.status(400).json({});
-  // }
+  const {email , password} = req.body;
+  try {
+    const user = await User.login(email , password);
+    res.status(200).json({user})
+  } catch (err) {
+    res.status(400).json({});
+  }
 };

@@ -202,7 +202,7 @@ const eventschema = new mongoose.Schema({
   },
   event: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 

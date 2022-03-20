@@ -215,6 +215,8 @@
       </div>
 
 <!-- Vertical navbar ends -->
+
+
 <div class="col-sm-10 ">
     <div class="row">
         <div class="col-sm-5">
@@ -222,94 +224,36 @@
         </div>
         <div class="col-sm-6"></div>
         <div class="col-sm-1">
-          <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Group
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Group 1</a>
-              <a class="dropdown-item" href="#">Group 2</a>
-              <a class="dropdown-item" href="#">Group 3</a>
-            </div>
-          </div> -->
           <form action="/eform" method="get">
           <button type="submit" href="www.techsias.org" class="btn btn-info"> add event </button>
         </form>
         </div>
     </div>
+
+
   <div class="row">
     <div class="grid-wrapper " style="margin-left: 2rem;">
       <div class="row">
         <div class="grid-wrapper">
+          
+          <% for(var i=0; i<eventdata.length; i++){ %>
             <div class="items">
-              <img src="../public/images/colorcode.png"
+              <img src="../public/images/eventimages/<%= eventdata[i].event %>"
               data-toggle="modal"
-			  data-target="#exampleModal">
+			        data-target="#exampleModal">
             </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-              data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			  data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			  data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			  data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			  data-target="#exampleModal">
-            </div>
-            <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			    data-target="#exampleModal">
-              </div>
-              <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			    data-target="#exampleModal">
-              </div>
-              <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			  data-target="#exampleModal">
-              </div>
-              <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			  data-target="#exampleModal">
-              </div>
-              <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			  data-target="#exampleModal"
-                >
-              </div>
-              <div class="items">
-                <img src="../public/images/colorcode.png"
-                data-toggle="modal"
-			  data-target="#exampleModal"> 
-              </div>
+            <% } %>
+
         </div>  
       </div>
     </div>
   </div>
 </div>
 <!--modal body-->
-<div
-      class="modal fade"
+<!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
+
+
+<div  class="modal fade"
       id="exampleModal"
       tabindex="-1"
       role="dialog"
@@ -319,8 +263,10 @@
       <div class="modal-dialog row" role="document">
         <div class="modal-content modalbody ">
           <div class="row text-black">
+  <% for(var i=0; i<eventdata.length; i++){ %>
+
           <div class=" col-4 ">
-            <img src="../public/images/colorcode.png" class="img-fluid book_image" alt="" srcset="">
+            <img src="../public/images/eventimages/<%= eventdata[i].event %>" class="img-fluid book_image" alt="" srcset="">
           </div>
           <div class="bookdetails col-8">
             <div class="modal-header">
@@ -335,17 +281,20 @@
               </button>
             </div>
             <div class="modal-body text_detail">
-              <p class="book_detail">Date: DD/MM/YYYY</p>
-              <p class="book_detail">Time: 7:00pm</p>
-              <p class="book_detail">Platform: Google meet</p>
-              <p class="book_detail">Event Category: Virtual</p>
+              <p class="book_detail">Date: <%= eventdata[i].edate %></p>
+              <p class="book_detail">Time: <%= eventdata[i].etime %></p>
+              <p class="book_detail">Platform: <%= eventdata[i].eplatform %></p>
+              <p class="book_detail">Event Category: <%= eventdata[i].ecategory %></p>
             </div>
           </div>
         </div>
     </div>      
     </div>
-    </div>
-    
+  </div>
+  <% } %>
+
+  <!-- <% } %> -->
+
     
   <!-- footer -->
   <%- include('../partials/footer'); %>

@@ -6,21 +6,40 @@ const authRoute = require('./authRoutes')
 
 
 // define storage for the images
-const storage = multer.diskStorage({
+const profileimagestorage = multer.diskStorage({
   // destination for file
   destination:function(req,file,callback){
     callback(null, './public/images/profileimages');
   },
-
+  // add backthe extenstion
+  filename:function (req,file,callback) {
+    callback(null , Date.now() + file.originalname)
+  }
+});
+// upload parameter
+const profileupload = multer({
+  storage:profileimagestorage,
+  limits:{
+    limits:{
+      fieldSize:1024*1024*8
+    },
+  },
+})
+const eventimagestorage = multer.diskStorage({
+  // destination for file
+  destination:function(req,file,callback){
+    callback(null, './public/images/eventimages');
+  },
   // add backthe extenstion
   filename:function(req,file,callback){
     callback(null , Date.now() + file.originalname)
   },
 });
 
+
 // upload parameter
-const upload = multer({
-  storage:storage,
+const eventupload = multer({
+  storage:eventimagestorage,
   limits:{
     limits:{
       fieldSize:1024*1024*8
@@ -28,12 +47,18 @@ const upload = multer({
   },
 })
 
+
+
 // ....................routes................. //
+
+// auth page
+router.use(authRoute)
 
 // Home page
 router.get("/", (req, res) => {
   res.render("home");
 });
+
 router.post("/", async(req, res) => {
   console.log(req.params);
     var user = new User({
@@ -53,18 +78,13 @@ router.post("/", async(req, res) => {
 });
 
 
-// auth page
-router.use(authRoute)
-
 // Admission page
 // students details pages
 router.get("/admin", (req, res) => {
   res.render("admin/admission");
 });
 
-router.post("/admin",upload.single('Image'), async (req, res) => {
-  // console.log(req.body);
-  // console.log(req.file);
+router.post("/admin", profileupload.single('Image'), async (req, res) => {
   var register = new Register({
     studname: req.body.studname,
     rollno: req.body.rollno,
@@ -120,14 +140,10 @@ router.get("/card", (req, res) => {
   })
 });
 
-
-
-
 // library page
 router.get("/library",(req,res)=>{
   res.render("admin/library");
 })
-
 // library adding pages
 router.get("/lform", (req, res) => {
   res.render("admin/bookform");
@@ -140,13 +156,35 @@ router.post("/lform", (req, res) => {
 
 // LDGevnt pages
 router.get("/events",(req,res)=>{
-  res.render("admin/ldgevents");
-})
+  Event.find(function(err,eventdata){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("admin/ldgevents",{eventdata});
+    }
+  })
+});
 
+// event form 
 router.get("/eform", (req, res) => {
   res.render("admin/eventform");
 });
 
+router.post("/eform",eventupload.single('event'), async(req,res)=>{
+  var event = new Event({
+    edate:req.body.edate,
+    etime:req.body.etime,
+    eplatform:req.body.eplatform,
+    ecategory:req.body.ecategory,
+    event:req.file.filename
+  });
+  try {
+    event.save();
+    res.redirect("events");
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 // profile card
 router.get("/profile", (req, res) => {

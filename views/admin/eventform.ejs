@@ -21,7 +21,7 @@
   <body>
     <div class="container rounded bg-white mt-5 mb-5">
       <div class="row">
-          <form action="/" method="post">
+          <form method="post" enctype="multipart/form-data">
         <div class="col-md-3 border-right"></div>
 
         <div class="col-md-5 border-right bg-secondary">
@@ -32,17 +32,14 @@
             <div class="row mt-4">
               <div class="col-md-12">
                 <div class="md-form">
-                  <label for="date-picker-example" class="text-white"
-                    >Date</label
-                  >
+                  <label for="date-picker-example" class="text-white">Date</label>
                   <input
                     placeholder="Selected date"
                     type="date"
                     id="date-picker-example"
                     class="form-control datepicker"
                     value="15-06-2000"
-                    name="edate"
-                  />
+                    name="edate"/>
                 </div>
               </div>
               <div class="col-md-12">
