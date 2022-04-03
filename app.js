@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const port = 4000;
 var path = require("path");
 const authRoute = require('./routes/authRoutes');
 const cookieparser = require('cookie-parser');
@@ -42,6 +43,6 @@ app.use("/", adminRouter);
 app.use("/admin", adminRouter);
 
 // create a new user in database
-app.listen(4000, () => {
-  console.log("website is running");
+app.listen(process.env.PORT|| port, () => {
+  console.log(`website is running : ${port}`);
 });

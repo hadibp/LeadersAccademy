@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/hadibp/LeadersAccademy/issues"
   },
-  "homepage": "https://github.com/hadibp/LeadersAccademy#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
