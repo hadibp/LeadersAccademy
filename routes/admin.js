@@ -220,6 +220,7 @@ router.get("/eform", (req, res) => {
 
 router.post("/eform",eventupload.single('event'), async(req,res)=>{
   var event = new Event({
+    pname:req.body.pname,
     edate:req.body.edate,
     etime:req.body.etime,
     eplatform:req.body.eplatform,

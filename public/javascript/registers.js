@@ -159,7 +159,7 @@ const bookschema = new mongoose.Schema({
   },
   bookimage:{
     type:String,
-    
+
   },
   publication: {
     type: String,
@@ -188,6 +188,10 @@ const bookschema = new mongoose.Schema({
 });
 
 const eventschema = new mongoose.Schema({
+  pname:{
+    type:String,
+    required:true
+  },
   edate: {
     type: String,
     required: true,

@@ -238,13 +238,14 @@
       <div class="row">
         <div class="grid-wrapper">
           
-          <!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
+          <% eventdata.forEach((eventdata) => { %>
             <div class="items">
-              <img src="../public/images/eventimages/<%= eventdata[i].event %>"
+              <label for=".items"><%= eventdata.pname %></label>
+              <img src="../public/images/eventimages/<%= eventdata.event %>"
               data-toggle="modal"
-			        data-target="#exampleModal">
+			        data-target="#eventmodal-<%= eventdata._id %>">
             </div>
-            <!-- <% } %> -->
+            <% }) %>
 
         </div>  
       </div>
@@ -252,11 +253,11 @@
   </div>
 </div>
 <!--modal body-->
-<!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
+<% eventdata.forEach((eventdata) => { %>
 
 
 <div  class="modal fade"
-      id="exampleModal"
+      id="eventmodal-<%= eventdata._id %>"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -265,14 +266,12 @@
       <div class="modal-dialog row" role="document">
         <div class="modal-content modalbody ">
           <div class="row text-black">
-  <!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
-
           <div class=" col-4 ">
-            <img src="../public/images/eventimages/<%= eventdata[i].event %>" class="img-fluid book_image" alt="" srcset="">
+            <img src="../public/images/eventimages/<%= eventdata.event %>" class="img-fluid book_image" alt="" srcset="">
           </div>
           <div class="bookdetails col-8">
             <div class="modal-header">
-              <h5 class="modal-title mt-3" id="exampleModalLabel">Title: dummydata</h5>
+              <h5 class="modal-title mt-3" id="exampleModalLabel">Title: <%= eventdata.pname %></h5>
 
               <button
                 type="button"
@@ -283,19 +282,19 @@
               </button>
             </div>
             <div class="modal-body text_detail">
-              <p class="book_detail">Date: <%= eventdata[i].edate %></p>
-              <p class="book_detail">Time: <%= eventdata[i].etime %></p>
-              <p class="book_detail">Platform: <%= eventdata[i].eplatform %></p>
-              <p class="book_detail">Event Category: <%= eventdata[i].ecategory %></p>
+              <p class="book_detail">Date: <%= eventdata.edate %></p>
+              <p class="book_detail">Time: <%= eventdata.etime %></p>
+              <p class="book_detail">Platform: <%= eventdata.eplatform %></p>
+              <p class="book_detail">Event Category: <%= eventdata.ecategory %></p>
             </div>
           </div>
         </div>
     </div>      
     </div>
   </div>
-  <!-- <% } %> -->
+  <% }) %>
 
-  <!-- <% } %> -->
+  
 
     
   <!-- footer -->
