@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./public/stylesheets/sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
   </head>
 <style>
           .navbar{
@@ -43,7 +46,6 @@
             width: 100%;
             color: #F8F8F8;
             text-align: center;
-            
           }
           ul {
               text-align: left;
@@ -59,7 +61,6 @@
           .fab{
               margin-left: 15px;
               font-size: 20px;
-          
           }
           body{
               background-color: #d0edf5;
@@ -168,6 +169,8 @@
     <%- include('../partials/navbar'); %>
 
     <!-- Vertical navbar -->
+    <!-- <%- include('../partials/sidebar'); %> -->
+
     <div class="container-fluid">
       <div class="row">
           <div class="col-sm-2" style="padding:0px;">
@@ -175,7 +178,7 @@
           <ul class="nav flex-column  mb-0">
           <li class="nav-item">
           <a href="#" class="nav-link text-dark bg-light a">
-                <i class="mr-5"></i>
+          <i class="mr-5"></i>
                 Admin
           </a>
           </li>
@@ -211,7 +214,6 @@
           </li>
           </ul>
         </div>
-        
       </div>
 
 <!-- Vertical navbar ends -->
@@ -236,13 +238,13 @@
       <div class="row">
         <div class="grid-wrapper">
           
-          <% for(var i=0; i<eventdata.length; i++){ %>
+          <!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
             <div class="items">
               <img src="../public/images/eventimages/<%= eventdata[i].event %>"
               data-toggle="modal"
 			        data-target="#exampleModal">
             </div>
-            <% } %>
+            <!-- <% } %> -->
 
         </div>  
       </div>
@@ -263,7 +265,7 @@
       <div class="modal-dialog row" role="document">
         <div class="modal-content modalbody ">
           <div class="row text-black">
-  <% for(var i=0; i<eventdata.length; i++){ %>
+  <!-- <% for(var i=0; i<eventdata.length; i++){ %> -->
 
           <div class=" col-4 ">
             <img src="../public/images/eventimages/<%= eventdata[i].event %>" class="img-fluid book_image" alt="" srcset="">
@@ -291,7 +293,7 @@
     </div>      
     </div>
   </div>
-  <% } %>
+  <!-- <% } %> -->
 
   <!-- <% } %> -->
 

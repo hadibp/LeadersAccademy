@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css" />
+    <link rel="stylesheet" href="./public/stylesheets/sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
   </head>
 <style>
@@ -129,10 +131,6 @@
     .nav-link:hover{
       background: #f3f2f2;
     }
-
-
-
-
     .modalbody {
       background-color: #E5E5E5;
       margin-top: 5px;
@@ -170,58 +168,19 @@
     <%- include('../partials/navbar'); %>
   </header>
     <!-- Vertical navbar -->
-    <div class="container-fluid">
-      <div class="row">
-          <div class="col-sm-2" style="padding:0px;">
-          <div class="vertical-nav bg-white nav-content" id="sidebar">
-          <ul class="nav flex-column  mb-0">
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark bg-light a">
-                <i class="mr-5"></i>
-                Admin
-          </a>
-          </li>
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-          <i class="mr-5"></i>
-            Abdul Hadi
-          </a>
-          </li>
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-          <i class="mr-5"></i>
-            profile
-          </a>
-          </li>
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-          <i class="mr-5"></i>
-            LDG
-          </a>
-          </li>
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-          <i class="mr-5"></i>
-            Library
-          </a>
-          </li>
-          <li class="nav-item">
-          <a href="#" class="nav-link text-dark">
-          <i class="mr-5"></i>
-            Events
-          </a>
-          </li>
-          </ul>
-        </div>
-      </div>
+    
+    <!-- <%- include('../partials/sidebar'); %> -->
+    
 <!-- Vertical navbar ends -->
-<div class="col-sm-10 ">
+<div class="col-sm-10">
   <div class="row">
-    <div class="col-sm-4"><h2>Library</h2></div>
+    <div class="col-sm-4">
+      <h2>Library</h2>
+    </div>
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
       <form action="/lform" method="get">
-        <button type="submit"  class="btn btn-info"> add book </button>
+        <button type="submit"  class="btn btn-info mr-auto"> add book </button>
       </form>
     </div>
   </div>
@@ -229,46 +188,26 @@
     <div class="grid-wrapper " style="margin-left: 2rem;">
       <div class="row">
         <div class="grid-wrapper">
+          <% bookdata.forEach((book) => { %>
             <div class="items">
-              <img src="../public/images/colorcode.png"
+              <label ><%= book.bookname %></label>
+              <img src="../public/images/libraryimages/<%= book.bookimage %>"
               data-toggle="modal"
-			        data-target="#exampleModal">
+			        data-target="#Modal-<%= book._id %>">
             </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			        data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			        data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			        data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			        data-target="#exampleModal">
-            </div>
-            <div class="items">
-              <img src="../public/images/colorcode.png"
-              data-toggle="modal"
-			        data-target="#exampleModal">
-            </div>
-            
+            <% }) %>
+           
         </div>  
       </div>
     </div>
   </div>
 </div>
 <!--modal body-->
+<% bookdata.forEach((book) => { %>
+
 <div
       class="modal fade"
-      id="exampleModal"
+      id="Modal-<%= book._id %>"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -282,7 +221,7 @@
           </div>
           <div class="bookdetails col-8">
             <div class="modal-header">
-              <h5 class="modal-title mt-3" id="exampleModalLabel">Title: dummydata</h5>
+              <h5 class="modal-title mt-3" id="exampleModalLabel">Title:  <%= book.bookname %></h5>
 
               <button
                 type="button"
@@ -293,26 +232,29 @@
               </button>
             </div>
             <div class="modal-body text_detail">
-              <p class="book_detail">Author: dummydata</p>
-              <p class="book_detail">Publication: WHS</p>
-              <p class="book_detail">Date Of Publish: 26/06/2020</p>
-              <p class="book_detail">Date added: 12/08/2022</p>
-              <p class="book_detail">Number of copies: 8</p>
-              <p class="book_detail">Availability: 8</p>
-              <p class="book_detail">Status: <p class="custom-control custom-radio custom-control-inline">
+              <p class="book_detail">Author: <%= book.nauthor %></p>
+              <p class="book_detail">Publication: <%= book.publication %></p>
+              <p class="book_detail">Published by: <%= book.publication %></p>
+              <p class="book_detail">Date Of Publish: <%= book.dpublish %></p>
+              <p class="book_detail">Date added: <%= book.dadded %></p>
+              <p class="book_detail">Number of copies: <%= book.copies %></p>
+              <p class="book_detail">Availability: <%= book.bavailability %></p>
+              <!-- <p class="book_detail">Status: <p class="custom-control custom-radio custom-control-inline">
                 <input type="radio" class="custom-control-input" id="defaultInline1" name="status" value="Read">
                 <label class="custom-control-label" for="defaultInline1">Read</label></p>
                 <p class="custom-control custom-radio custom-control-inline">
                   <input type="radio" class="custom-control-input" id="defaultInline2" name="status" value="Unread">
                   <label class="custom-control-label" for="defaultInline2">Unread</label>
                 </p>
-              </p>
+              </p> -->
             </div>
           </div>
         </div>
     </div>      
     </div>
-    </div>
+  </div>
+  <% }) %>
+
     <footer>
     
   <!-- footer -->

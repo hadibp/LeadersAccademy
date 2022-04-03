@@ -2,6 +2,8 @@
 
 .navbar {
     background-color: #63808c;
+    width: 100%;
+
   }
   .image-logo {
     max-width: 3%;
@@ -10,9 +12,7 @@
   .nav-logo {
     margin-left: 40px;
   }
-  .nav-end {
-    margin-left: 680px;
-  }
+  
   .navbar-light .navbar-toggler {
   color: rgba(0,0,0,.5);
   border-color: rgb(255 251 251);
@@ -20,21 +20,9 @@
   a:hover{
     background-color: #C4E1E9;
   }
-  @media screen and (max-width:1430px) {
-    .nav-end {
-    margin-left: 460px;
-  }
-  }
-  @media screen and (max-width:1210px) {
-    .nav-end {
-    margin-left: 280px;
-  }
-  }
-  @media screen and (max-width:400px) {
-    .nav-end {
-    margin-left: 0px;
-  }
-  }
+  /* .heading{
+    width: 100%;
+  } */
 
   @media screen and (max-width: 768px) {
     .image-logo {

@@ -5,7 +5,7 @@ const multer = require("multer");
 const authRoute = require('./authRoutes')
 
 
-// define storage for the images
+// define storage for the profileimages
 const profileimagestorage = multer.diskStorage({
   // destination for file
   destination:function(req,file,callback){
@@ -16,7 +16,7 @@ const profileimagestorage = multer.diskStorage({
     callback(null , Date.now() + file.originalname)
   }
 });
-// upload parameter
+// upload profile parameter
 const profileupload = multer({
   storage:profileimagestorage,
   limits:{
@@ -25,6 +25,8 @@ const profileupload = multer({
     },
   },
 })
+
+// define storage for the eventimages
 const eventimagestorage = multer.diskStorage({
   // destination for file
   destination:function(req,file,callback){
@@ -36,8 +38,7 @@ const eventimagestorage = multer.diskStorage({
   },
 });
 
-
-// upload parameter
+// upload event parameter
 const eventupload = multer({
   storage:eventimagestorage,
   limits:{
@@ -46,6 +47,30 @@ const eventupload = multer({
     },
   },
 })
+
+// define storage for the libraryimages
+const libraryimagestorage = multer.diskStorage({
+  // destination for file
+  destination:function(req,file,callback){
+    callback(null, './public/images/libraryimages');
+  },
+  // add backthe extenstion
+  filename:function(req,file,callback){
+    callback(null , Date.now() + file.originalname)
+  },
+});
+
+// upload library parameter
+const libraryupload = multer({
+  storage:libraryimagestorage,
+  limits:{
+    limits:{
+      fieldSize:1024*1024*8
+    },
+  },
+})
+
+
 
 
 
@@ -60,12 +85,12 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", async(req, res) => {
-  console.log(req.params);
-    var user = new User({
-    email:req.body.email,
-    password:req.body.password
-  });
-  user.save();
+  // console.log(req.params);
+  //   var user = new User({
+  //   email:req.body.email,
+  //   password:req.body.password
+  // });
+  // user.save();
   // const {email, password } = req.body;
   // try {
     
@@ -135,22 +160,45 @@ router.get("/card", (req, res) => {
         console.log(err);
       }else{
         res.render("admin/card",{register:register});
-        console.log(register);
+        // console.log(register);
       }
   })
 });
 
+
 // library page
 router.get("/library",(req,res)=>{
-  res.render("admin/library");
-})
+  Book.find(function(error,bookdata){
+    if (error) {
+      console.log(error);
+    } else {
+      res.render("admin/library",{bookdata});
+    }
+  })
+});
 // library adding pages
 router.get("/lform", (req, res) => {
   res.render("admin/bookform");
 });
-router.post("/lform", (req, res) => {
+router.post("/lform", libraryupload.single('bookimage'), async (req, res) => {
   console.log(req.body);
-  res.render("admin/library");
+  var book = new Book({
+    bookname:req.body.bookname,
+    nauthor:req.body.nauthor,
+    bookimage:req.file.filename,
+    publication:req.body.publication,
+    dpublish:req.body.dpublish,
+    dadded:req.body.dadded,
+    copies:req.body.copies,
+    bavailability:req.body.bavailability,
+    status:req.body.status
+  });
+  try {
+      book.save();
+      res.render("admin/bookform");
+      } catch (error) {
+      console.log(error);
+    }
 });
 
 

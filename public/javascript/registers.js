@@ -157,6 +157,10 @@ const bookschema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  bookimage:{
+    type:String,
+    
+  },
   publication: {
     type: String,
     required: true,
@@ -177,7 +181,7 @@ const bookschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Status: {
+  status: {
     type: String,
     required: true,
   },

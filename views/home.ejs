@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-      />
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="stylesheet" href="./public/stylesheets/style.css" />
+      <link rel="stylesheet" href="./public/stylesheets/sidebar.css">
     <!-- <link rel="stylesheet" href="../public/stylesheets/logindashbord.css" /> -->
     <title>home</title>
   </head>
@@ -125,12 +125,12 @@ footer {
     <main>
         <div class="container-fluid">
           <div class="row mt-2">
-            <div class="col-3">
+            <div class="col-3" style="max-width:17%; padding: 0px 0px 0px 0px">
               <%- include('partials/sidebar'); %>
             </div>
             <div class="col-4">
                     <h1><b>LEADERS</b><br>ACADEMY</h1>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Login</button>
+                    <button type="button" class="btn" style= "background-color: #63808C; color: #ffffff;" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Login</button>
             </div>  
             <div class="col-5">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -154,8 +154,6 @@ footer {
                           <span class="sr-only">Next</span>
                         </a>
                     </div>
-                  
-            
             </div>
         </div>
       </div>
@@ -190,7 +188,6 @@ footer {
 </main>
 <!-- footer   -->
 <footer>
-
     <%- include('partials/footer'); %>
 </footer>
 

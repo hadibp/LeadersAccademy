@@ -21,88 +21,96 @@
   <body>
     <div class="container rounded bg-white mt-5 mb-5">
       <div class="row">
-          <form method="post" enctype="multipart/form-data">
-        <div class="col-md-3 border-right"></div>
-
-        <div class="col-md-5 border-right bg-secondary">
-          <div class="p-3 py-5">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h4 class="text-right text-white">Event Settings</h4>
-            </div>
-            <div class="row mt-4">
-              <div class="col-md-12">
-                <div class="md-form">
-                  <label for="date-picker-example" class="text-white">Date</label>
-                  <input
-                    placeholder="Selected date"
-                    type="date"
-                    id="date-picker-example"
-                    class="form-control datepicker"
-                    value="15-06-2000"
-                    name="edate"/>
+        <form method="post" enctype="multipart/form-data">
+          <div class="col-md-3 border-right"></div>
+          <div class="col-md-5 border-right bg-secondary">
+            <div class="p-3 py-5">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h4 class="text-right text-white">Event Settings</h4>
+              </div>
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <div class="md-form">
+                    <label for="date-picker-example" class="text-white"
+                      >Date</label
+                    >
+                    <input
+                      placeholder="Selected date"
+                      type="date"
+                      id="date-picker-example"
+                      class="form-control datepicker"
+                      value="15-06-2000"
+                      name="edate"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div
+                    class="md-form md-outline input-with-post-icon timepicker"
+                    twelvehour="true"
+                  >
+                    <label for="twelve-hour-clock" class="labels text-white"
+                      >Time</label
+                    >
+                    <input
+                      type="time"
+                      id="twelve-hour-clock"
+                      class="form-control"
+                      placeholder="Select time"
+                      value="12:00"
+                      name="etime"
+                    />
+                    <i class="fas fa-envelope input-prefix"></i>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <label
+                      class="text-white ml-4"
+                      for="exampleFormControlSelect1"
+                      >Platform</label
+                    >
+                    <select
+                      class="form-control ml-4"
+                      id="exampleFormControlSelect1"
+                      name="eplatform"
+                    >
+                      <option value="gmeet">Google Meet</option>
+                      <option value="zmeet">Zoom Meeting</option>
+                      <option value="botim">Botim</option>
+                      <option value="none">None</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label
+                      class="text-white ml-4"
+                      for="exampleFormControlSelect1"
+                      >Event Category</label
+                    >
+                    <select
+                      class="form-control ml-4"
+                      id="exampleFormControlSelect1"
+                      name="ecategory"
+                    >
+                      <option value="virtual">Virtual</option>
+                      <option value="non-virtual">Non-Virtual</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="image">
+                  <input type="file" class="ml-4 mt-4" name="event" />
                 </div>
               </div>
-              <div class="col-md-12">
-                <div
-                  class="md-form md-outline input-with-post-icon timepicker"
-                  twelvehour="true"
-                >
-                  <label for="twelve-hour-clock" class="labels text-white"
-                    >Time</label
-                  >
-                  <input
-                    type="time"
-                    id="twelve-hour-clock"
-                    class="form-control"
-                    placeholder="Select time"
-                    value="12:00"
-                    name="etime"
-                  />
-                  <i class="fas fa-envelope input-prefix"></i>
-                </div>
+              <div class="mt-5 text-center">
+                <button class="btn btn-success profile-button" type="submit">
+                  Save Event
+                </button>
               </div>
-              <div class="row mt-3">
-                <div class="col-md-6">
-                  <label class="text-white ml-4" for="exampleFormControlSelect1"
-                    >Platform</label
-                  >
-                  <select
-                    class="form-control ml-4"
-                    id="exampleFormControlSelect1"
-                    name="eplatform"
-                  >
-                    <option value="gmeet">Google Meet</option>
-                    <option value="zmeet">Zoom Meeting</option>
-                    <option value="botim">Botim</option>
-                    <option value="none">None</option>
-                  </select>
-                </div>
-                <div class="col-md-6">
-                  <label class="text-white ml-4" for="exampleFormControlSelect1"
-                    >Event Category</label
-                  >
-                  <select
-                    class="form-control ml-4"
-                    id="exampleFormControlSelect1"
-                    name="ecategory"
-                  >
-                    <option value="virtual">Virtual</option>
-                    <option value="non-virtual">Non-Virtual</option>
-                  </select>
-                </div>
-              </div>
-              <div class="image">
-                <input type="file" class="ml-4 mt-4" name="event" />
-              </div>
-            </div>
-            <div class="mt-5 text-center">
-              <button class="btn btn-success profile-button" type="submit">
-                Save Event
-              </button>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
       </div>
     </div>
   </body>
