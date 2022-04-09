@@ -6,7 +6,7 @@ const authRoute = require('./routes/authRoutes');
 const cookieparser = require('cookie-parser');
 
 // routes
-var adminRouter = require("./routes/Admin");
+var adminRouter = require("./routes/admin");
 var studentRouter = require("./routes/student");
 var publicRouter = require("./routes/public");
 
