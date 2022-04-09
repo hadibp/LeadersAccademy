@@ -6,16 +6,16 @@ const authRoute = require('./authRoutes')
 
 
 // define storage for the profileimages
-// const profileimagestorage = multer.diskStorage({
-//   // destination for file
-//   destination:function(req,file,callback){
-//     callback(null, './public/images/profileimages');
-//   },
-//   // add backthe extenstion
-//   filename:function (req,file,callback) {
-//     callback(null , Date.now() + file.originalname)
-//   }
-// });
+const profileimagestorage = multer.diskStorage({
+  // destination for file
+  destination:function(req,file,callback){
+    callback(null, './public/images/profileimages');
+  },
+  // add backthe extenstion
+  filename:function (req,file,callback) {
+    callback(null , Date.now() + file.originalname)
+  }
+});
 // upload profile parameter
 const profileupload = multer({
   storage:profileimagestorage,
@@ -27,16 +27,16 @@ const profileupload = multer({
 })
 
 // define storage for the eventimages
-// const eventimagestorage = multer.diskStorage({
-//   // destination for file
-//   destination:function(req,file,callback){
-//     callback(null, './public/images/eventimages');
-//   },
-//   // add backthe extenstion
-//   filename:function(req,file,callback){
-//     callback(null , Date.now() + file.originalname)
-//   },
-// });
+const eventimagestorage = multer.diskStorage({
+  // destination for file
+  destination:function(req,file,callback){
+    callback(null, './public/images/eventimages');
+  },
+  // add backthe extenstion
+  filename:function(req,file,callback){
+    callback(null , Date.now() + file.originalname)
+  },
+});
 
 // upload event parameter
 const eventupload = multer({
@@ -49,16 +49,16 @@ const eventupload = multer({
 })
 
 // define storage for the libraryimages
-// const libraryimagestorage = multer.diskStorage({
-//   // destination for file
-//   destination:function(req,file,callback){
-//     callback(null, './public/images/libraryimages');
-//   },
-//   // add backthe extenstion
-//   filename:function(req,file,callback){
-//     callback(null , Date.now() + file.originalname)
-//   },
-// });
+const libraryimagestorage = multer.diskStorage({
+  // destination for file
+  destination:function(req,file,callback){
+    callback(null, './public/images/libraryimages');
+  },
+  // add backthe extenstion
+  filename:function(req,file,callback){
+    callback(null , Date.now() + file.originalname)
+  },
+});
 
 // upload library parameter
 const libraryupload = multer({

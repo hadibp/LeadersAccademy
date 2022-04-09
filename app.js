@@ -12,8 +12,9 @@ var publicRouter = require("./routes/public");
 
 // database connection
 require("./config/connection");
+require("dotenv").config();
 
-
+console.log(process.env);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -43,6 +44,6 @@ app.use("/", adminRouter);
 app.use("/admin", adminRouter);
 
 // create a new user in database
-app.listen(process.env.PORT|| port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`website is running : ${port}`);
 });

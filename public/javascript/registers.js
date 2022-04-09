@@ -8,7 +8,7 @@ const adminschema = new mongoose.Schema({
     required: [true, "please enter email"],
     unique: true,
     lowercase: true,
-    validate: [isEmail, "please enter a valid email"],
+    validate: [isEmail, "please enter a valid email like with @"],
   },
   password: {
     type: String,
@@ -16,7 +16,7 @@ const adminschema = new mongoose.Schema({
     minlength: [6, "minmum password length required is 6 charachters"],
   },
 });
-
+ 
 const studentSchema = new mongoose.Schema({
   studname: {
     type: String,
@@ -185,7 +185,7 @@ const bookschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-});
+}); 
 
 const eventschema = new mongoose.Schema({
   pname:{
@@ -216,10 +216,10 @@ const eventschema = new mongoose.Schema({
 
 
 // functions to doc saved to db
-// adminschema.post('save',(doc , next)=>{
-//   console.log('new user was created & saved ',doc);
-//   next();
-// })
+adminschema.post('save',(doc , next)=>{
+  console.log('new user was created & saved ',doc);
+  next();
+})
 
 adminschema.pre('save', async function (next  ){
   const salt = await bcrypt.genSalt();
@@ -228,17 +228,17 @@ adminschema.pre('save', async function (next  ){
 })
 
 // statis method to login user
-// adminschema.static.login = async function (email , password) {
-//   const user = await this.findOne({email });
-//   if (user ){
-//     const auth = await bcrypt.compare(password , user.password);
-//     if (auth){
-//       return user;
-//     }
-//     throw Error('incorrect password')
-//   }
-//   throw Error('incorrect email')
-// }
+adminschema.static.login = async function (email , password) {
+  const user = await this.findOne({email });
+  if (user ){
+    const auth = await bcrypt.compare(password , user.password);
+    if (auth){
+      return user;
+    }
+    throw Error('incorrect password')
+  }
+  throw Error('incorrect email')
+}
 
 
 
