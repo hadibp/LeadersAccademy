@@ -30,10 +30,18 @@
     <%- include('../partials/navbar'); %>
     <div class="container">
         <h1>Students</h1>
+        <% if(user) {%>
+          <h2>hello wrold</h2>
+          <% } else {%>
+            <button class=" btn btn-success" type="submit">got to next page</button>
+        
+
+        <%}%>
+
         <div class="row">
             <% for(var i=0; i<register.length; i++){ %>
       <div class="card m-3 rounded" style="width: 18rem">
-        <img src="../public/images/profileimages/<%= register[i].img %>" class="rounded-circle image mx-auto d-block mt-4" alt="profile" />
+          <img src="../public/images/profileimages/<%= register[i].img %>" class="rounded-circle image mx-auto d-block mt-4" alt="profile" />
         <div class="card-body">
           <h5 class="card-title " style="text-align: center;"><%= register[i].studname %></h5>
           <p class="card-text " style="text-align: center;">

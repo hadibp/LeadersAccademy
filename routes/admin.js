@@ -1,113 +1,28 @@
 var express = require("express");
 var router = express.Router();
-const { Register, User, Book, Event}= require("../public/javascript/registers");
-const multer = require("multer");
+const { Register, Book, Event,User}= require("../config/registers");
 const authRoute = require('./authRoutes')
-
-
-// define storage for the profileimages
-const profileimagestorage = multer.diskStorage({
-  // destination for file
-  destination:function(req,file,callback){
-    callback(null, './public/images/profileimages');
-  },
-  // add backthe extenstion
-  filename:function (req,file,callback) {
-    callback(null , Date.now() + file.originalname)
-  }
-});
-// upload profile parameter
-const profileupload = multer({
-  storage:profileimagestorage,
-  limits:{
-    limits:{
-      fieldSize:1024*1024*8
-    },
-  },
-})
-
-// define storage for the eventimages
-const eventimagestorage = multer.diskStorage({
-  // destination for file
-  destination:function(req,file,callback){
-    callback(null, './public/images/eventimages');
-  },
-  // add backthe extenstion
-  filename:function(req,file,callback){
-    callback(null , Date.now() + file.originalname)
-  },
-});
-
-// upload event parameter
-const eventupload = multer({
-  storage:eventimagestorage,
-  limits:{
-    limits:{
-      fieldSize:1024*1024*8
-    },
-  },
-})
-
-// define storage for the libraryimages
-const libraryimagestorage = multer.diskStorage({
-  // destination for file
-  destination:function(req,file,callback){
-    callback(null, './public/images/libraryimages');
-  },
-  // add backthe extenstion
-  filename:function(req,file,callback){
-    callback(null , Date.now() + file.originalname)
-  },
-});
-
-// upload library parameter
-const libraryupload = multer({
-  storage:libraryimagestorage,
-  limits:{
-    limits:{
-      fieldSize:1024*1024*8
-    },
-  },
-})
-
-
-
+var {verify} = require('../config/verifytoken');
+const {profileupload,eventupload,libraryupload} = require('./imagessetting');
 
 
 // ....................routes................. //
 
-// auth page
-router.use(authRoute)
 
 // Home page
 router.get("/", (req, res) => {
-  res.render("home");
-});
-
-router.post("/", async(req, res) => {
-  // console.log(req.params);
-  //   var user = new User({
-  //   email:req.body.email,
-  //   password:req.body.password
-  // });
-  // user.save();
-  // const {email, password } = req.body;
-  // try {
-    
-  // } catch (err) {
-  //   console.log("thiss is an error");
-  // }
-
-  res.render("home");
-  
+  res.render("home",{User});
 });
 
 
+ 
 // Admission page
 // students details pages
+
 router.get("/admin", (req, res) => {
   res.render("admin/admission");
 });
+
 
 router.post("/admin", profileupload.single('Image'), async (req, res) => {
   var register = new Register({
@@ -154,7 +69,7 @@ router.post("/admin", profileupload.single('Image'), async (req, res) => {
 
 
 // dispaly student page
-router.get("/card", (req, res) => {
+router.get("/card",verify , (req, res) => {
   Register.find(function(err,register){
       if(err){
         console.log(err);
@@ -176,10 +91,14 @@ router.get("/library",(req,res)=>{
     }
   })
 });
+
+
 // library adding pages
 router.get("/lform", (req, res) => {
   res.render("admin/bookform");
 });
+
+
 router.post("/lform", libraryupload.single('bookimage'), async (req, res) => {
   console.log(req.body);
   var book = new Book({
@@ -237,7 +156,16 @@ router.post("/eform",eventupload.single('event'), async(req,res)=>{
 
 // profile card
 router.get("/profile", (req, res) => {
-  res.render("admin/stdprofile");
+
+  Register.find(function(err,register){
+    if(err){
+      console.log(err);
+    }else{
+      // res.render("admin/card",{register:register});
+      // console.log(register);
+      res.render("admin/stdprofile",{register:register});
+    }
+})
 });
 
 router.get("/all",(req,res)=>{
@@ -246,5 +174,7 @@ router.get("/all",(req,res)=>{
   }).catch((err)=>{
     console.log(err);
   });
-})
+});
+
+
 module.exports = router;

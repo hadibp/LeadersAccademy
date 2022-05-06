@@ -160,6 +160,10 @@
     margin: 8px;
     margin-left: 0px;
   }
+  .default_size{
+    width: 200px;
+    height: 200px;
+  }
 </style>
 <body>
   <header>
@@ -193,7 +197,8 @@
               <label ><%= book.bookname %></label>
               <img src="../public/images/libraryimages/<%= book.bookimage %>"
               data-toggle="modal"
-			        data-target="#Modal-<%= book._id %>">
+			        data-target="#Modal-<%= book._id %>"
+              class="default_size">
             </div>
             <% }) %>
            
@@ -217,7 +222,7 @@
         <div class="modal-content modalbody ">
           <div class="row text-black">
           <div class=" col-4 ">
-            <img src="../public/images/colorcode.png" class="img-fluid book_image" alt="" srcset="">
+            <img src="../public/images/libraryimages/<%= book.bookimage %>" class="img-fluid book_image" alt="" srcset="">
           </div>
           <div class="bookdetails col-8">
             <div class="modal-header">

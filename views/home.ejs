@@ -48,7 +48,6 @@
      height: 45px;
    }
  }
-
    .heading {
      font-size: 24px;
      line-height: revert;
@@ -67,9 +66,6 @@
  .modal-footer{
    background-color: #63808C;
  }
- 
-
- 
  .carousel{
    display: flex;
    flex-flow: row wrap;
@@ -126,7 +122,8 @@ footer {
         <div class="container-fluid">
           <div class="row mt-2">
             <div class="col-3" style="max-width:17%; padding: 0px 0px 0px 0px">
-              <%- include('partials/sidebar'); %>
+    <%- include('./partials/sidebar'); %>
+              
             </div>
             <div class="col-4">
                     <h1><b>LEADERS</b><br>ACADEMY</h1>
@@ -167,14 +164,14 @@ footer {
         </button>
       </div>
       <div class="modal-body">
-        <form action="/" method="post">
+        <form  method="post">
           <div class="form-group ">
             <label for="recipient-name" class="col-form-label">Username:</label>
-            <input type="text" class="form-control email error" id="recipient-name" name="email" value="qwer">
+            <input type="text" class="form-control email error" id="email" name="email" value="test19@gmail.com">
           </div>
           <div class="form-group ">
             <label for="message-text" class="col-form-label">Password:</label>
-            <input class="form-control password error" id="message-text" type="text" name="password" value="qwer"></input>
+            <input class="form-control password error" id="password" type="text" name="password" value="123456"></input>
           </div>
         </div>
         <div class="modal-footer">
@@ -191,46 +188,36 @@ footer {
     <%- include('partials/footer'); %>
 </footer>
 
+
 <script>
-  const form = document.querySelector("form");
-  const emailError = document.querySelector(".email.error");
-  const passwordError = document.querySelector(".password.error");
+  const form = document.querySelector('form');
+  form.addEventListener('submit',async (e)=> {
+      // e.preventDefault();
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+      // get the values 
+      // const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-    // reset the values
-    emailError.textcontent = "";
-    passwordError.textcontent = "";
+      try {
+        const res = await fetch('/',{
+          method: 'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({email,password})
+        }).then((result)=>result.json())
 
-    // get the vlaues
-    const email = form.email.value;
-    const password = form.password.value;
-
-    try {
-      const res = await fetch("/", {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-      const data = await res.json();
-      console.log(data);
-      console.log(data.errors);
-      if (data.errors) {
-        emailError.textContent = data.errors.email;
-        passwordError.textContent = data.errors.password;
+        if (res.status==='ok') {
+          console.log("got the token = " + res.data);          
+        }else{
+          console.log(res.error);
+        }
+      } catch (err) {
+        console.log("home page error"+err);
       }
-      if (data.user) {
-        location.assign("/");
-      }
-    } catch (err) {
-      console.log(err);
-    }
   });
 </script>
-    
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

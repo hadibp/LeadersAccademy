@@ -161,6 +161,10 @@
     margin: 8px;
     margin-left: 0px;
   }
+  .default_size{
+    width: 200px;
+    height: 200px;
+  }
   
 </style>
 <body>
@@ -244,7 +248,8 @@
               <label for=".items"><%= eventdata.pname %></label>
               <img src="../public/images/eventimages/<%= eventdata.event %>"
               data-toggle="modal"
-			        data-target="#eventmodal-<%= eventdata._id %>">
+			        data-target="#eventmodal-<%= eventdata._id %>"
+              class="default_size">
             </div>
             <% }) %>
 

@@ -1,6 +1,7 @@
 require('dotenv').config();
+
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://hadi7653:${process.env.DB_PASS}@cluster0.zhsny.mongodb.net/leaders`,{
+mongoose.connect(process.env.DB_OFFLINE,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 }).then((e)=>{
