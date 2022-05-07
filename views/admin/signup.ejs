@@ -17,21 +17,58 @@
     />
     <link rel="stylesheet" href="../public/stylesheets/style.css" />
 
-
     <title>signup</title>
   </head>
-  <style>
+
+  <style type="text/css">
     .error {
       color: indianred;
       font-size: 13px;
       margin-left: 20px;
       font-weight: bold;
     }
+    body {
+      background-color: #c4e1e9;
+    }
+    .form-style input {
+      border: 0;
+      height: 50px;
+      border-radius: 0;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .form-style input:focus {
+      border-bottom: 1px solid #007bff;
+      box-shadow: none;
+      outline: 0;
+      background-color: #ebebeb;
+    }
+    .sideline {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ccc;
+    }
+    button {
+      height: 50px;
+    }
+    .sideline:before,
+    .sideline:after {
+      content: "";
+      border-top: 1px solid #ebebeb;
+      margin: 0 20px 0 0;
+      flex: 1 0 20px;
+    }
+
+    .sideline:after {
+      margin: 0 0 0 20px;
+    }
   </style>
   <body>
     <%- include('../partials/navbar'); %>
 
-    <div class="container">
+    <!-- <div class="container">
       <form method="post">
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
@@ -69,28 +106,66 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
+    </div> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto p-4 m-5 border-light shadow-sm">
+          <h3 class="pb-3">Sign Up</h3>
+          <form method="post">
+            <div class="form-style">
+              <div class="form-group pb-3">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="form-group pb-3">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+            </div>
+
+            <div class="pt-3 text-center">
+              <button type="submit" class="btn mx-auto"><b> submit</b></button>
+              If you have an account? <a href="#">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-  <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit',async (e)=> {
+
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", async (e) => {
         // e.preventDefault();
 
-        // get the values 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        // get the values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
         try {
-          const res = await fetch('/register',{
-            method: 'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({name,email,password})
+          const res = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
           });
           console.log(res);
         } catch (err) {
-          console.log("register page error"+err);
+          console.log("register page error" + err);
         }
-    });
-  </script>
+      });
+    </script>
   </body>
 </html>

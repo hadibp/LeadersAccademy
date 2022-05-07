@@ -33,7 +33,6 @@ router.post("/register", async (req, res) => {
 
   try {
     const response = await User.create({
-      name: req.body.name,
       email: req.body.email,
       password: hashedpassword,
     });
@@ -71,8 +70,16 @@ router.post("/", async (req, res) => {
     // set cookies----------
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
 
-    // res.json({status:"ok", data :token})
-    res.render("admin/card")
+    // res.json({status:"ok", data :token});
+
+    Register.find(function(err,register){
+      if(err){
+        console.log(err);
+      }else{
+        res.render("admin/card",{register:register});
+        // console.log(register);
+      }
+  })
   } catch (err) {
     console.log("erroorr");
     res.sendStatus(404);

@@ -18,8 +18,8 @@
 
     <title>Eventform</title>
   </head>
-  <body>
-    <div class="container rounded bg-white mt-5 mb-5">
+  <body  >
+    <div class="container rounded bg-white mt-5 mb-5 mx-auto">
       <div class="row">
         <form method="post" enctype="multipart/form-data">
           <div class="col-md-3 border-right"></div>
@@ -139,3 +139,127 @@
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"
   ></script>
 </html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+      -
+    />
+    <title>Eventform</title>
+  </head>
+  <style>
+    body {
+      background-color: #d0edf5;
+    }
+  </style>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="align-items-center">
+                <i><h3 class="">Event Settings</h3></i>
+              </div>
+            </div>
+          </div>
+          <form method="post" enctype="multipart/form-data">
+          <div class="row">
+
+            <div class="col-sm-12">
+              <label for="date-picker-example" class="">Program Name</label>
+              <input
+                placeholder="Prorgaram name"
+                type="text"
+                class="form-control"
+                value="Program name"
+                name="pname"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="date-picker-example" class="">Date</label>
+              <input
+                placeholder="Selected date"
+                type="date"
+                id="date-picker-example"
+                class="form-control datepicker"
+                value="15-06-2000"
+                name="edate"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div
+                class="md-form md-outline input-with-post-icon timepicker"
+                twelvehour="true"
+              >
+                <label for="twelve-hour-clock" class="">Time</label>
+                <input
+                  type="time"
+                  id="twelve-hour-clock"
+                  class="form-control"
+                  placeholder="Select time"
+                  value="12:00"
+                  name="etime"
+                />
+                <i class="fas fa-envelope input-prefix"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="" for="exampleFormControlSelect1">Platform</label>
+              <select
+                class="form-control ml-4"
+                id="exampleFormControlSelect1"
+                name="eplatform"
+              >
+                <option value="gmeet">Google Meet</option>
+                <option value="zmeet">Zoom Meeting</option>
+                <option value="botim">Botim</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label class="" for="exampleFormControlSelect1"
+                >Event Category</label
+              >
+              <select
+                class="form-control ml-4"
+                id="exampleFormControlSelect1"
+                name="ecategory"
+              >
+                <option value="virtual">Virtual</option>
+                <option value="non-virtual">Non-Virtual</option>
+              </select>
+            </div>
+          </div>
+          <div class="image">
+            <input type="file" class="ml-4 mt-4" name="event" />
+          </div>
+
+          <div class="mt-5 text-center">
+            <button class="btn btn-success profile-button" type="submit">
+              Save Event
+            </button>
+          </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/radialIndicator/1.4.0/radialIndicator.js"></script>
+</html> -->
