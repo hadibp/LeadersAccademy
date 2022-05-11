@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 // Admission page
 // students details pages
 
-router.get("/admin", (req, res) => {
+router.get("/admin", verify,(req, res) => {
   res.render("admin/admission");
 });
 
@@ -82,7 +82,7 @@ router.get("/card",verify , (req, res) => {
 
 
 // library page
-router.get("/library",(req,res)=>{
+router.get("/library",verify,(req,res)=>{
   Book.find(function(error,bookdata){
     if (error) {
       console.log(error);
@@ -94,7 +94,7 @@ router.get("/library",(req,res)=>{
 
 
 // library adding pages
-router.get("/lform", (req, res) => {
+router.get("/lform", verify,(req, res) => {
   res.render("admin/bookform");
 });
 
@@ -122,7 +122,7 @@ router.post("/lform", libraryupload.single('bookimage'), async (req, res) => {
 
 
 // LDGevnt pages
-router.get("/events",(req,res)=>{
+router.get("/events",verify,(req,res)=>{
   Event.find(function(err,eventdata){
     if(err){
       console.log(err);
@@ -133,7 +133,7 @@ router.get("/events",(req,res)=>{
 });
 
 // event form 
-router.get("/eform", (req, res) => {
+router.get("/eform",verify, (req, res) => {
   res.render("admin/eventform");
 });
 
