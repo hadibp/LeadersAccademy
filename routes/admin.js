@@ -57,7 +57,7 @@ router.post("/admin", profileupload.single('Image'), async (req, res) => {
     relativename: req.body.relativename,
     relativeprogram: req.body.relativeprogram,
     relativeyear: req.body.relativeyear,
-    img:req.file.filename,
+    // img:req.file.filename,
   });
   try{
     register.save();
@@ -104,7 +104,7 @@ router.post("/lform", libraryupload.single('bookimage'), async (req, res) => {
   var book = new Book({
     bookname:req.body.bookname,
     nauthor:req.body.nauthor,
-    bookimage:req.file.filename,
+    // bookimage:req.file.filename,
     publication:req.body.publication,
     dpublish:req.body.dpublish,
     dadded:req.body.dadded,
@@ -144,7 +144,7 @@ router.post("/eform",eventupload.single('event'), async(req,res)=>{
     etime:req.body.etime,
     eplatform:req.body.eplatform,
     ecategory:req.body.ecategory,
-    event:req.file.filename
+    // event:req.file.filename
   });
   try {
     event.save();

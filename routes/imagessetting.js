@@ -7,9 +7,9 @@ const profileimagestorage = multer.diskStorage({
     callback(null, "./public/images/profileimages");
   },
   // add backthe extenstion
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  },
+  // filename: function (req, file, callback) {
+  //   callback(null, Date.now() + file.originalname);
+  // },
 });
 // upload profile parameter
 const profileupload = multer({
@@ -28,9 +28,9 @@ const eventimagestorage = multer.diskStorage({
     callback(null, "./public/images/eventimages");
   },
   // add backthe extenstion
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  },
+  // filename: function (req, file, callback) {
+  //   callback(null, Date.now() + file.originalname);
+  // },
 });
 // upload event parameter
 const eventupload = multer({
@@ -49,9 +49,9 @@ const libraryimagestorage = multer.diskStorage({
     callback(null, "./public/images/libraryimages");
   },
   // add backthe extenstion
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + file.originalname);
-  },
+  // filename: function (req, file, callback) {
+  //   callback(null, Date.now() + file.originalname);
+  // },
 });
 // upload library parameter
 const libraryupload = multer({

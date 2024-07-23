@@ -29,7 +29,7 @@ app.use(cookieparser());
 // router
 app.use("*", checkuser )
 app.use("/", adminRouter);
-app.use(authRoute);
+// app.use(authRoute);
 
 
 // create a new user in database

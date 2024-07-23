@@ -2,11 +2,11 @@ const jwt = require("jsonwebtoken");
 const { User }= require("./registers");
 
 const verify = function (req, res, next) {
-  const token = req.cookies.jwt;
-  if (!token) return res.status(401).send("Acees Denied");
+  // const token = req.cookies.jwt;
+  // if (!token) return res.status(401).send("Acees Denied");
   try {
-    const verified = jwt.verify(token, process.env.JWT_KEY);
-    req.user = verified;
+    // const verified = jwt.verify(token, process.env.JWT_KEY);
+    // req.user = verified;
     next();
   } catch (error) {
     res.status(400).send("invalid Token");
